@@ -1,0 +1,72 @@
+#!/bin/bash
+#
+# Call Record: Created by Ruslan Tyutin
+# Description: Service that allows you to manage the recording of calls
+#              Possible values start, stop, restart/reload. A process check is performed
+#              If the process is started, then a duplicate process is prohibited
+#              To use, you must specify the path to the script
+#
+ 
+
+PATH_CALLRECORD="/home/rus/PycharmProjects/callrecord/callrecord/"
+
+check_for_work() {
+  let count_running_procces=$(ps aux | grep call_record | awk ' { print $2 } ' | wc -l)-1
+  if [[ "$count_running_procces" == 0 ]]; then
+    echo "false"
+  else
+    echo "true"
+  fi
+}
+
+do_start() {
+  echo Starting CallRecord...
+  /bin/bash "$PATH_CALLRECORD"CallRecord.sh 2>/dev/null
+  RETVAL=$? 
+
+  if [ "$RETVAL" != 0 ]; then
+    echo "ERROR: status code '$RETVAL'"
+  fi
+}
+
+do_stop() {
+  echo Stopping CallRecord...
+  if pgrep -x "dumpcap" >/dev/null; then
+         kill -9 $(ps aux | grep "call_record=true" | awk ' {print $2} ') 2>/dev/null
+  else
+         echo "process CallRecord not found"
+  fi
+  RETVAL=$?
+
+  if [ "$RETVAL" != 0 ]; then
+    echo "ERROR: status code '$RETVAL'"
+  fi
+}
+
+case "$1" in
+   start)    
+    do_start
+    ;;
+
+   stop)
+    do_stop
+    ;;
+
+   restart|reload)
+    echo Reloading CallRecord...
+    check=$(check_for_work)
+    if [[ $check == "true" ]] ; then
+     do_stop
+     do_start
+    fi
+    if [[ $check == "false" ]] ; then
+      echo "process: 'CallRecord' was not found"
+      do_start
+    fi
+    ;;
+
+   *)
+       echo Usage: $0 "{start|stop|restart}"
+       exit 1
+esac
+exit 0 
