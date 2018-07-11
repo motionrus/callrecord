@@ -16,6 +16,6 @@ for work you need to place the call-record file in the /etc/init.d/ directory an
 
 ### Roadmap
 
- - It is necessary to implement a daemon that will monitor the child process and restart each time the process drops
- - Collect logs
- - Archive Dumps
+ - (-) It is necessary to implement a daemon that will monitor the child process and restart each time the process drops
+ - (-) Collect logs
+ - (+) Archive Dumps
