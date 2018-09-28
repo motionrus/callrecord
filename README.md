@@ -63,3 +63,5 @@ root@coder:/tmp/callrecord# chmod +x CallRecord.sh compression.py
 
 Добавляем в `crontab` примерно следующую строчку `0 * * * * /tmp/callrecord/compression.py > /dev/null 2>&1`
 Каждый час мы ищем файлы с расширением pcapng, создаем архив и удаляем те файлы, из которых сделали архив.
+
+Управление через команды `/etc/init.d/call-record start|stop|status`
