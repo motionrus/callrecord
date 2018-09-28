@@ -52,6 +52,16 @@ case "$1" in
     do_stop
     ;;
 
+   status)
+    echo "Status CallRecord..."
+    check=$(check_for_work)
+    if [[ $check == "true" ]] ; then
+      echo "process CallRecord is running now"
+    else
+      echo "process CallRecord isn't running now"
+    fi
+    ;;
+
    restart|reload)
     echo Reloading CallRecord...
     check=$(check_for_work)
