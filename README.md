@@ -43,7 +43,9 @@ root@coder:/tmp/callrecord# cp call-record /etc/init.d/
 root@coder:/tmp/callrecord# chmod +x /etc/init.d/call-record 
 root@coder:/tmp/callrecord# chmod +x CallRecord.sh compression.py
 ```
+
 Глобальные переменные файла `CallRecord.sh`
+
 | Variable | README |
 | ------ | ------ |
 | `COUNT_FILES="4380"` | Количество файлов в дирректории. Параметр `COUNT_FILES` будет ротироваться при переполнении в дирректории файлов |
@@ -53,6 +55,7 @@ root@coder:/tmp/callrecord# chmod +x CallRecord.sh compression.py
 | `CALLRECORD_INTERFACE="enp3s0"` | Указываем интерфейс |
 
 Глобальные переменные `compression.py`
+
 | Variable | README |
 | ------ | ------ |
 | `FULL_PATH_TO_DIR = '/tmp/call_record'` | Путь до дирректории |
