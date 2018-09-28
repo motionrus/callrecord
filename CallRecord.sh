@@ -11,7 +11,7 @@
 COUNT_FILES="4380"
 COUNT_SECONDS="3600"
 CALLRECORD_PATH="/tmp/call_record/call_record.pcapng"
-CALLRECORD_HOST="port 1719|5061"
+CALLRECORD_HOST="portrange 1719-1720 or 1720-1723 or 5060-5063 or 10000-15999 or 16000-19999"
 CALLRECORD_INTERFACE="enp3s0"
 
 let count_running_procces=$(ps aux | grep call_record | awk ' { print $2 } ' | wc -l)-1

@@ -8,7 +8,7 @@
 #
  
 
-PATH_CALLRECORD="/home/rus/PycharmProjects/callrecord/callrecord/"
+PATH_CALLRECORD="/tmp/callrecord/"
 
 check_for_work() {
   let count_running_procces=$(ps aux | grep call_record | awk ' { print $2 } ' | wc -l)-1

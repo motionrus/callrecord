@@ -7,7 +7,7 @@
 
 import os
 
-FULL_PATH = '/home/rus/PycharmProjects/callrecord/callrecord_init/call_record'
+FULL_PATH_TO_DIR = '/tmp/call_record'
 EXTENSION_FILE = 'pcapng'
 
 
@@ -23,4 +23,4 @@ def compress(path, mask=''):
 
 
 if __name__ == '__main__':
-    compress(FULL_PATH, EXTENSION_FILE)
+    compress(FULL_PATH_TO_DIR, EXTENSION_FILE)
