@@ -24,7 +24,7 @@ for work you need to place the call-record file in the /etc/init.d/ directory an
 
 Утилита Dumpcap требует root права, по этому при настройке делаем все от рута. 
 клонируем:
-```bash
+```shell
 rus@coder:~/$ sudo su
 root@coder:~# cd /tmp/
 root@coder:/tmp# git clone https://github.com/motionrus/callrecord.git
@@ -38,7 +38,7 @@ root@coder:/tmp/callrecord#
 
 Указываем в файле call-record `PATH_CALLRECORD="/tmp/callrecord/"` путь до нашего проекта
 Перемещаем файл в инит дирректорию и делаем исполняемым
-```bash
+```shell
 root@coder:/tmp/callrecord# cp call-record /etc/init.d/
 root@coder:/tmp/callrecord# chmod +x /etc/init.d/call-record 
 root@coder:/tmp/callrecord# chmod +x CallRecord.sh compression.py
